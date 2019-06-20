@@ -6,9 +6,12 @@ const contacts = require("./routes/contacts");
 const connectDB = require("./config/db");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+// Parses incoming requests with JSON payloads and is based on body-parser
+app.use(express.json({ extended: false }));
 
 app.use("/api/users", users);
 app.use("/api/auth", auth);
