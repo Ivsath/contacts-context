@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
+import ContactContext from "../../context/contact/contactContext";
+
 const ContactItem = ({ contact }) => {
+  const contactContext = useContext(ContactContext);
+  const { deleteContact } = contactContext;
+
   const { id, name, email, phone, type } = contact;
 
   const capitalize = string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const onDelete = () => {
+    deleteContact(id);
   };
 
   return (
@@ -36,7 +45,9 @@ const ContactItem = ({ contact }) => {
       </ul>
       <p>
         <button className="btn btn-dark btn-sm">Edit</button>
-        <button className="btn btn-danger btn-sm">Delete</button>
+        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+          Delete
+        </button>
       </p>
     </div>
   );
