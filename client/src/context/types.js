@@ -1,3 +1,5 @@
+export const GET_CONTACTS = "GET_CONTACTS";
+export const CLEAR_CONTACTS = "CLEAR_CONTACTS";
 export const ADD_CONTACT = "ADD_CONTACT";
 export const CONTACT_ERROR = "CONTACT_ERROR";
 export const DELETE_CONTACT = "DELETE_CONTACT";
